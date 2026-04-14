@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ─────────────────────────────────────────
+         Parent Spring Boot
+         ───────────────────────────────────────── -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.13</version>
+        <relativePath/>
+    </parent>
+
+    <!-- ─────────────────────────────────────────
+         Identité du projet
+         ───────────────────────────────────────── -->
+    <groupId>com.connect4</groupId>
+    <artifactId>connect4-backend</artifactId>
+    <version>1.0.0</version>
+    <name>connect4-backend</name>
+    <description>Backend Spring Boot pour le jeu Connect4</description>
+
+    <!-- ─────────────────────────────────────────
+         Java 17 (LTS, compatible Spring Boot 3)
+         ───────────────────────────────────────── -->
+    <properties>
+        <java.version>25</java.version>
+    </properties>
+
+    <!-- ─────────────────────────────────────────
+         Dépendances
+         ───────────────────────────────────────── -->
+    <dependencies>
+
+        <!-- Spring Boot Web — @RestController, @RequestMapping, etc. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- PostgreSQL driver — remplace le Class.forName("org.postgresql.Driver") de DataBase.java -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+
+        <!-- Gson — déjà utilisé dans SauvegardeDatabase.java pour sérialiser grille/coups -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+
+        <!-- Spring Boot Test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <!-- ─────────────────────────────────────────
+         Plugin Maven Spring Boot
+         (génère le jar exécutable avec mvnw)
+         ───────────────────────────────────────── -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
